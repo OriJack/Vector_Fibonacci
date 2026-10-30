@@ -181,3 +181,40 @@ button.secundario:hover {
     color: #4f46e5;
     font-weight: 700;
 }
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem 0.5rem; 
+    }
+
+    .contenedor {
+        padding: 1.2rem;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+
+    .controles {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0.8rem;
+        gap: 10px;
+    }
+
+
+    #inputsContainer {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        gap: 10px;
+    }
+
+    #results {
+        padding: 1rem;
+    }
+    
+    .resultados-lista p {
+        font-size: 13.5px;
+    }
+}
