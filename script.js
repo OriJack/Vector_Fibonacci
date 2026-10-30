@@ -8,7 +8,6 @@ sizeInput.addEventListener('input', () => {
 
 function soloEnteros(input) {
     input.addEventListener('input', () => {
-
         input.value = input.value.replace(/[^0-9]/g, '');
     });
 }
@@ -22,13 +21,14 @@ function generarCasillas(valores = null) {
         return;
     }
 
+    const tieneValores = Array.isArray(valores);
     inputsContainer.innerHTML = '';
     for (let i = 0; i < n; i++) {
         const div = document.createElement('div');
         div.className = 'casilla'; 
         
-        
-        div.innerHTML = `<label>Pos[${i}]:</label> <input type="text" class="vec-val" maxlength="4" value="${valores ? valores[i] : ''}">`;
+        const valorInicial = (tieneValores && valores[i] !== undefined) ? valores[i] : '';
+        div.innerHTML = `<label>Pos[${i}]:</label> <input type="text" inputmode="numeric" class="vec-val" maxlength="5" value="${valorInicial}" placeholder="0">`;
         
         soloEnteros(div.querySelector('input'));
         inputsContainer.appendChild(div);
@@ -82,9 +82,11 @@ async function procesar() {
         document.getElementById('resMayores').textContent = data.mayores;
         document.getElementById('resMenores').textContent = data.menores;
     } catch (e) {
-        
-        errorMsg.textContent = 'Error conectando con api.php. Verifica que Laragon esté iniciado.';
+        errorMsg.textContent = 'Error conectando con api.php. Verifica que el servidor esté iniciado.';
     }
 }
 
-window.onload = generarCasillas;
+// Inicializar al cargar la página sin pasar el objeto Event
+window.addEventListener('DOMContentLoaded', () => {
+    generarCasillas();
+});
