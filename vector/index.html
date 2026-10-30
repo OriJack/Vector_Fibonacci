@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Operaciones con Vectores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <h1>El Vector Fibonacci de Moya</h1>
+
+        <div class="controles">
+            <label>Tamaño del vector (N): </label>
+            <input type="text" id="sizeInput" value="10" size="5">
+            <button onclick="generarCasillas()">Generar Casillas</button>
+            <button class="secundario" onclick="cargarEjemplo()">Cargar Ejemplo</button>
+            <button onclick="procesar()">Calcular Todo</button>
+        </div>
+
+        <p id="errorMsg" class="error"></p>
+
+        <div id="inputsContainer"></div>
+
+        <div id="results" class="oculto">
+            <hr>
+            <h3>Resultados</h3>
+            
+            <div class="resultados-lista">
+                <p><strong>Vector Original:</strong> <span id="vecOriginal"></span></p>
+                <p><strong>1) Primos en posiciones Fibonacci y múltiplo de 3:</strong> <span id="res1"></span></p>
+                <p><strong>2) Primos en posiciones primas (múltiplos de 3, 4, 5 y 7):</strong> <span id="res2"></span></p>
+                <p><strong>3) Vector Ordenado (Burbuja solo en primos de Fibonacci):</strong> <span id="vecOrdenado"></span></p>
+
+                <h4>4) Promedio y Posiciones (después de ordenar):</h4>
+                <p><strong>Promedio General:</strong> <span id="resProm"></span></p>
+                <p><strong>Mayores al promedio (N > prom):</strong> <span id="resMayores"></span></p>
+                <p><strong>Menores al promedio (N < prom):</strong> <span id="resMenores"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
